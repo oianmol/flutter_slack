@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/home/controller/sl_dashboard_controller.dart';
+import 'package:slack_app/app/pages/home/widgets/sk_bottom_nav_bar.dart';
 
 class SLDashboard extends GetView<SLDashboardController> {
   const SLDashboard({Key? key}) : super(key: key);
@@ -46,6 +47,7 @@ class SLDashboard extends GetView<SLDashboardController> {
               ),
               centerTitle: false,
             ),
+            bottomNavigationBar: SKBottomNavBar(),
           );
         });
   }
