@@ -9,7 +9,7 @@ class SKHomeJumpTo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return SizedBox(child: InkWell(
       child: jumpToTextContainer(
           jumpToText(),
           const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
@@ -50,7 +50,7 @@ class SKHomeJumpTo extends StatelessWidget {
               );
             });
       },
-    );
+    ),width: Get.width,);
   }
 
   Row jumpToTFRow() {

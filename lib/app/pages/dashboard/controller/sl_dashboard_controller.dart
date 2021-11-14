@@ -29,7 +29,9 @@ class SLDashboardController extends GetxController {
   void onInit() {
     super.onInit();
     widgets = [
-      SKHomeScreen(),
+      SKHomeScreen((){
+        toggleDrawer();
+      }),
       SKDirectMessagesScreen(),
       SKMentionsScreen(),
       SKSearchScreen(),

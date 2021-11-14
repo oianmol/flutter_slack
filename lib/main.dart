@@ -16,12 +16,6 @@ class SlackApp extends StatelessWidget {
     return materialApp();
   }
 
-  GetCupertinoApp cupertinoApp() {
-    return GetCupertinoApp(
-      home: SLHomePage(),
-    );
-  }
-
   GetMaterialApp materialApp() {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

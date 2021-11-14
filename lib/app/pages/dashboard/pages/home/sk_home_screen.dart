@@ -7,8 +7,8 @@ import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_home_jumpto.
 
 class SKHomeScreen extends GetView<SKHomeController> {
   final SKHomeController _controller;
-
-  SKHomeScreen({Key? key})
+  final Null Function() callback;
+  SKHomeScreen(this.callback, {Key? key})
       : _controller = Get.put(SKHomeController()),
         super(key: key);
 
@@ -17,35 +17,70 @@ class SKHomeScreen extends GetView<SKHomeController> {
     return GetBuilder(
         init: _controller,
         builder: (cont) {
-          return CustomScrollView(
-            slivers: [
-              const SKHomeJumpTo().sliverBox,
-              threadsBlock().sliverBox,
-              const SKGroupChannelsWidget(title: "Starred", canStart: false)
-                  .sliverBox,
-              const SKGroupChannelsWidget(
-                      title: "Direct Messages", canStart: true)
-                  .sliverBox,
-              const SKGroupChannelsWidget(title: "Channels", canStart: true)
-                  .sliverBox,
-              const SKGroupChannelsWidget(title: "Connections", canStart: false)
-                  .sliverBox,
-              Row(
-                children: [
-                  const Icon(
-                    Icons.add,
-                    color: Colors.grey,
-                  ).paddingAll(8),
-                  Text(
-                    "Add teammates",
-                    style: GoogleFonts.notoSans(
-                        textStyle: Get.textTheme.subtitle1),
-                  ).paddingAll(16)
-                ],
-              ).marginOnly(left: 8).sliverBox
-            ],
+          return Scaffold(
+            appBar: dashboardAppBar(),
+            body: CustomScrollView(
+              slivers: [
+                const SKHomeJumpTo().sliverBox,
+                threadsBlock().sliverBox,
+                const SKGroupChannelsWidget(title: "Starred", canStart: false)
+                    .sliverBox,
+                const SKGroupChannelsWidget(
+                        title: "Direct Messages", canStart: true)
+                    .sliverBox,
+                const SKGroupChannelsWidget(title: "Channels", canStart: true)
+                    .sliverBox,
+                const SKGroupChannelsWidget(
+                        title: "Connections", canStart: false)
+                    .sliverBox,
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.add,
+                      color: Colors.grey,
+                    ).paddingAll(8),
+                    Text(
+                      "Add teammates",
+                      style: GoogleFonts.notoSans(
+                          textStyle: Get.textTheme.subtitle1),
+                    ).paddingAll(16)
+                  ],
+                ).marginOnly(left: 8).sliverBox
+              ],
+            ),
           );
         });
+  }
+
+  AppBar dashboardAppBar() {
+    return AppBar(
+      title: Row(
+        children: [
+          Container(
+            width: 38,
+            height: 38,
+            margin: const EdgeInsets.only(right: 8),
+            child: GestureDetector(
+              onTap: () {
+                callback.call();
+              },
+              child: Container(
+                child: const FlutterLogo(),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+          ),
+          Text(
+            "mutualmobile",
+            style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+      centerTitle: false,
+    );
   }
 
   Widget threadsBlock() {

@@ -4,8 +4,9 @@ import 'package:slack_app/app/pages/dashboard/controller/sl_dashboard_controller
 import 'package:slack_app/app/pages/dashboard/widgets/sl_dashboard.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sl_home_side.dart';
 import 'package:slack_app/app/widgets/slider/sl_sliding_drawer.dart';
+import 'dart:math';
 
-class SLHomePage extends GetView<SLDashboardController> {
+class SLHomePage extends GetResponsiveView<SLDashboardController> {
   final SLDashboardController controller;
 
   SLHomePage({Key? key})
@@ -13,19 +14,51 @@ class SLHomePage extends GetView<SLDashboardController> {
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return GetBuilder(
-        init: Get.find<SLDashboardController>(),
-        builder: (cont) {
-          return Scaffold(
-            body: SLCustomSlidingWidget(
-              key: controller.slidingKey,
-              menu: SLHomeSide(),
-              content: SLDashboard(),
-              menuSize: context.width * 0.85,
-              animationDuration: 200,
+  Widget? desktop() {
+    return Scaffold(
+        body: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: const [
+            Flexible(
+              child: SLHomeSide(),
+              flex: 1,
             ),
-          );
-        });
+            Expanded(
+              child: SLDashboard(),
+              flex: 3,
+            )
+          ],
+        ));
+  }
+
+  @override
+  Widget? tablet() {
+    return Scaffold(
+        body: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: const [
+            Flexible(
+              child: SLHomeSide(),
+              flex: 3,
+            ),
+            Expanded(
+              child: SLDashboard(),
+              flex: 5,
+            )
+          ],
+        ));
+  }
+
+  @override
+  Widget? phone() {
+    return Scaffold(
+      body: SLCustomSlidingWidget(
+        key: controller.slidingKey,
+        menu: const SLHomeSide(),
+        content: const SLDashboard(),
+        menuSize: 280,
+        animationDuration: 200,
+      ),
+    );
   }
 }
