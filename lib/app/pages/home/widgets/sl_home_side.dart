@@ -40,7 +40,7 @@ class SLHomeSide extends GetView<SLDashboardController> {
         GestureDetector(child: Row(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 16),
+              margin: EdgeInsets.only(left: 8),
               width: 72,
               height: 72,
               decoration: outerDecoration(),
@@ -80,7 +80,7 @@ class SLHomeSide extends GetView<SLDashboardController> {
                 "mutualmobile.slack.com",
                 style: GoogleFonts.notoSans(
                     color: Colors.white60,
-                    textStyle: Get.textTheme.subtitle1),
+                    textStyle: Get.textTheme.subtitle2),
               ),
               trailing: Icon(
                 Icons.more_horiz,
