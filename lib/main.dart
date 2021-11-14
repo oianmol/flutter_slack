@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slack_app/app/pages/home/widgets/sl_home.dart';
+import 'package:slack_app/app/pages/home/widgets/sk_dashboard_root.dart';
 
 void main() {
   runApp(const SlackApp());

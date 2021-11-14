@@ -14,41 +14,41 @@ class SLDashboard extends GetView<SLDashboardController> {
         init: Get.find<SLDashboardController>(),
         builder: (cont) {
           return Scaffold(
-            body: Container(
-              child: Center(
-                child: Text("I am dashboard"),
-              ),
-            ),
-            appBar: AppBar(
-              title: Row(
-                children: [
-                  Container(
-                    width: 38,
-                    height: 38,
-                    margin: const EdgeInsets.only(right: 8),
-                    child: GestureDetector(
-                      onTap: () {
-                        controller.toggleDrawer();
-                      },
-                      child: Container(
-                        child: const FlutterLogo(),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "mutualmobile",
-                    style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-              centerTitle: false,
-            ),
-            bottomNavigationBar: SKBottomNavBar(),
+            body: controller.currentWidget(),
+            appBar: dashboardAppBar(),
+            bottomNavigationBar: const SKBottomNavBar(),
           );
         });
+  }
+
+  AppBar dashboardAppBar() {
+    return AppBar(
+      title: Row(
+        children: [
+          Container(
+            width: 38,
+            height: 38,
+            margin: const EdgeInsets.only(right: 8),
+            child: GestureDetector(
+              onTap: () {
+                controller.toggleDrawer();
+              },
+              child: Container(
+                child: const FlutterLogo(),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8)),
+              ),
+            ),
+          ),
+          Text(
+            "mutualmobile",
+            style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+      centerTitle: false,
+    );
   }
 }
