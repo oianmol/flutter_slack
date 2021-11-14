@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slack_app/app/pages/home/controller/sl_dashboard_controller.dart';
-import 'package:slack_app/app/pages/home/widgets/sl_dashboard.dart';
-import 'package:slack_app/app/pages/home/widgets/sl_home_side.dart';
+import 'package:slack_app/app/pages/dashboard/controller/sl_dashboard_controller.dart';
+import 'package:slack_app/app/pages/dashboard/widgets/sl_dashboard.dart';
+import 'package:slack_app/app/pages/dashboard/widgets/sl_home_side.dart';
 import 'package:slack_app/app/widgets/slider/sl_sliding_drawer.dart';
 
 class SLHomePage extends GetView<SLDashboardController> {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slack_app/app/pages/home/controller/sl_dashboard_controller.dart';
+import 'package:slack_app/app/pages/dashboard/controller/sl_dashboard_controller.dart';
 
 class SKBottomNavBar extends GetView<SLDashboardController> {
   const SKBottomNavBar({Key? key}) : super(key: key);

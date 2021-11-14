@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slack_app/app/pages/home/pages/home/widgets/sk_recent_user_item.dart';
+import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_recent_user_item.dart';
 
 class SKRecentTextUsers extends StatelessWidget {
   const SKRecentTextUsers({Key? key}) : super(key: key);

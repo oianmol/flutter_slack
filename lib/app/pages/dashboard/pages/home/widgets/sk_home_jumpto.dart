@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slack_app/app/pages/home/pages/home/widgets/sk_history_channels.dart';
-import 'package:slack_app/app/pages/home/pages/home/widgets/sk_recent_text_users.dart';
+import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_history_channels.dart';
+import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_recent_text_users.dart';
 
 class SKHomeJumpTo extends StatelessWidget {
   const SKHomeJumpTo({Key? key}) : super(key: key);

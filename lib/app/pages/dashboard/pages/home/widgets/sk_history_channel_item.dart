@@ -3,16 +3,20 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SKHistoryChannel extends StatelessWidget {
-  const SKHistoryChannel({Key? key}) : super(key: key);
+  final bool isPrivate;
+
+  const SKHistoryChannel({Key? key, required this.isPrivate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          "#",
-          style: textStyle(),
-        ).paddingAll(8),
+        isPrivate
+            ? const Icon(Icons.lock_outline_rounded)
+            : Text(
+                "#",
+                style: textStyle(),
+              ).paddingAll(8),
         Text(
           "flutter_hyd",
           style: textStyle(),
@@ -23,7 +27,6 @@ class SKHistoryChannel extends StatelessWidget {
 
   TextStyle textStyle() {
     return GoogleFonts.notoSans(
-        textStyle: Get.textTheme.subtitle1!
-            .copyWith(color: Colors.black));
+        textStyle: Get.textTheme.subtitle1!.copyWith(color: Colors.black));
   }
 }
