@@ -12,7 +12,7 @@ class SideMenuFooter extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
-        Divider(
+        const Divider(
           color: Colors.white12,
         ),
         ...options
