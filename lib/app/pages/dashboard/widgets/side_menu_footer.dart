@@ -35,7 +35,7 @@ class SideMenuFooter extends StatelessWidget {
       ),
       title: Text(e.name,
           style: GoogleFonts.notoSans(
-              color: Colors.white, textStyle: Get.textTheme.headline6)),
+              color: Colors.white, textStyle: Get.textTheme.subtitle1)),
     );
   }
 }
