@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +22,7 @@ class SKSearchScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.search_sharp, color: Colors.white70)
+                const Icon(CupertinoIcons.search, color: Colors.white70)
                     .marginOnly(right: 8),
                 Expanded(
                   child: TextField(
