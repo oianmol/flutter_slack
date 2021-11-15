@@ -59,8 +59,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
           animation: _animationDrawerController,
           builder: (_, child) {
             return Transform.translate(
-              offset:
-                  getOffsetValues(animation.value),
+              offset: getOffsetValues(animation.value),
               child: child,
             );
           },
@@ -97,7 +96,6 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
         dragging = true;
       });
     }
-
   }
 
   void _onHorizontalDragEnd(DragEndDetails detail) {
@@ -106,6 +104,8 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
       setState(() {
         dragging = false;
       });
+    } else {
+      openOrClose();
     }
   }
 
@@ -120,8 +120,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
     move(position);
 
     // close drawer for left/right type drawer
-    if (isDrawerOpen &&
-        detail.delta.dx < 15) {
+    if (isDrawerOpen && detail.delta.dx < 15) {
       closeDrawer();
     }
   }
@@ -133,7 +132,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   }
 
   openOrClose() {
-    if (_percent > 0.3) {
+    if (_percent > 0.6) {
       openDrawer();
     } else {
       closeDrawer();
@@ -160,6 +159,4 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   static Offset getOffsetValues(double value) {
     return Offset(value, 0);
   }
-
 }
-
