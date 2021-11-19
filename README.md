@@ -1,6 +1,6 @@
 # Slack UI with flutter!
 
-A new Flutter project.
+A new Flutter project with Slack UI
 
 ## Screenshots
 
@@ -9,6 +9,11 @@ A new Flutter project.
 ![Screenshot](art/3.png)
 ![Screenshot](art/4.png)
 ![Screenshot](art/5.png)
+
+## TODO
+
+- UI & Styling [In Progress]
+- Business Logic [TODO]
 
 ## Getting Started
 
