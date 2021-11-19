@@ -35,7 +35,7 @@ class SLDashboardController extends GetxController {
       SKDirectMessagesScreen(),
       SKMentionsScreen(),
       SKSearchScreen(),
-      SKPersonalScreen()
+      const SKPersonalScreen()
     ];
   }
 }

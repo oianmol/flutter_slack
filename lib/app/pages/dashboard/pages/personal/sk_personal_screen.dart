@@ -18,6 +18,7 @@ class SKPersonalScreen extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
+          const SizedBox(height: 8,).sliverBox,
           profileYou().sliverBox,
           whatsStatus().sliverBox,
           footerItem(FooterOption(
