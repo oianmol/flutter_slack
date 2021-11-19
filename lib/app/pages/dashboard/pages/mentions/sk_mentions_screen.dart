@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slack_app/app/pages/dashboard/pages/mentions/sk_mention_item.dart';
 
 class SKMentionsScreen extends StatelessWidget {
   const SKMentionsScreen({Key? key}) : super(key: key);
@@ -7,13 +9,41 @@ class SKMentionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Mentions & Reactions",
-          style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: false,
+      appBar: buildAppBar(),
+      body: CustomScrollView(
+        slivers: [
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+          const SKMentionItem().sliverBox,
+          const Divider().sliverBox,
+        ],
       ),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      title: Text(
+        "Mentions & Reactions",
+        style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
+      ),
+      centerTitle: false,
     );
   }
 }
