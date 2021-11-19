@@ -4,11 +4,11 @@ A new Flutter project with Slack UI
 
 ## Screenshots
 
-![Screenshot](art/1.png | width=100 )
-![Screenshot](art/2.png | width=100)
-![Screenshot](art/3.png | width=100)
-![Screenshot](art/4.png | width=100)
-![Screenshot](art/5.png | width=100)
+![Screenshot](art/1.png)
+![Screenshot](art/2.png)
+![Screenshot](art/3.png)
+![Screenshot](art/4.png)
+![Screenshot](art/5.png)
 
 ## TODO
 
