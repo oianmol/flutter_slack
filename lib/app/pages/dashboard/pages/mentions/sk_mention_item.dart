@@ -17,13 +17,11 @@ class SKMentionItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(
-                      child: Text(
-                          "Prasanna Tolasati reacted in prj-someproject-int",
-                          style: GoogleFonts.notoSans())),
+                  Expanded(child: mentionText()),
                   Text("57m",
-                      style: GoogleFonts.notoSans(
-                          textStyle: Get.textTheme.caption)).paddingOnly(left: 8)
+                          style: GoogleFonts.notoSans(
+                              textStyle: Get.textTheme.caption))
+                      .paddingOnly(left: 8)
                 ],
                 crossAxisAlignment: CrossAxisAlignment.start,
               ),
@@ -50,5 +48,22 @@ class SKMentionItem extends StatelessWidget {
         )
       ],
     );
+  }
+
+  Widget mentionText() {
+    return RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text: "Prasanna Tolasati ",
+          style: GoogleFonts.notoSans(
+              fontWeight: FontWeight.bold, color: Colors.black87)),
+      TextSpan(
+          text: "reacted in",
+          style: GoogleFonts.notoSans(color: Colors.black87)),
+      TextSpan(
+          text: " 🔒 prj-someproject-int",
+          style: GoogleFonts.notoSans(
+              fontWeight: FontWeight.bold, color: Colors.black87))
+    ]));
   }
 }
