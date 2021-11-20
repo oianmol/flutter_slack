@@ -19,11 +19,11 @@ class SKMentionItem extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                          "Prasanna Tolasati reacted in prj-wsa_mm-seguro-int",
+                          "Prasanna Tolasati reacted in prj-someproject-int",
                           style: GoogleFonts.notoSans())),
                   Text("57m",
                       style: GoogleFonts.notoSans(
-                          textStyle: Get.textTheme.caption))
+                          textStyle: Get.textTheme.caption)).paddingOnly(left: 8)
                 ],
                 crossAxisAlignment: CrossAxisAlignment.start,
               ),
