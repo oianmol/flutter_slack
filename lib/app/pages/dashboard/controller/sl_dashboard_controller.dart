@@ -33,7 +33,7 @@ class SLDashboardController extends GetxController {
         toggleDrawer();
       }),
       SKDirectMessagesScreen(),
-      SKMentionsScreen(),
+      const SKMentionsScreen(),
       const SKSearchScreen(),
       const SKPersonalScreen()
     ];
