@@ -46,41 +46,32 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constrain) {
-      return Container(
-          child: Stack(children: <Widget>[
+      return Stack(children: <Widget>[
         /// Display Menu
         SLCustomSlidingMenu(
-          sliderMenu: widget.menu,
-          sliderMenuOpenSize: widget.menuSize,
+      sliderMenu: widget.menu,
+      sliderMenuOpenSize: widget.menuSize,
         ),
 
         /// Display Main Screen
         AnimatedBuilder(
-          animation: _animationDrawerController,
-          builder: (_, child) {
-            return Transform.translate(
-              offset: getOffsetValues(animation.value),
-              child: child,
-            );
-          },
-          child: GestureDetector(
-            behavior: HitTestBehavior.deferToChild,
-            onHorizontalDragStart: _onHorizontalDragStart,
-            onHorizontalDragEnd: _onHorizontalDragEnd,
-            onHorizontalDragUpdate: (detail) =>
-                _onHorizontalDragUpdate(detail, constrain),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              child: Column(
-                children: <Widget>[
-                  Expanded(child: widget.content),
-                ],
-              ),
-            ),
-          ),
+      animation: _animationDrawerController,
+      builder: (_, child) {
+        return Transform.translate(
+          offset: getOffsetValues(animation.value),
+          child: child,
+        );
+      },
+      child: GestureDetector(
+        behavior: HitTestBehavior.deferToChild,
+        onHorizontalDragStart: _onHorizontalDragStart,
+        onHorizontalDragEnd: _onHorizontalDragEnd,
+        onHorizontalDragUpdate: (detail) =>
+            _onHorizontalDragUpdate(detail, constrain),
+        child: widget.content,
+      ),
         ),
-      ]));
+      ]);
     });
   }
 

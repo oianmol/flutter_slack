@@ -6,7 +6,7 @@ import 'package:slack_app/app/pages/dashboard/widgets/sl_home_side.dart';
 import 'package:slack_app/app/widgets/slider/sl_sliding_drawer.dart';
 import 'dart:math';
 
-class SLHomePage extends GetResponsiveView<SLDashboardController> {
+class SLHomePage extends GetView<SLDashboardController> {
   final SLDashboardController controller;
 
   SLHomePage({Key? key})
@@ -14,51 +14,33 @@ class SLHomePage extends GetResponsiveView<SLDashboardController> {
         super(key: key);
 
   @override
-  Widget? desktop() {
-    return Scaffold(
-        body: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: const [
-            Flexible(
-              child: SLHomeSide(),
-              flex: 1,
-            ),
-            Expanded(
-              child: SLDashboard(),
-              flex: 3,
-            )
-          ],
-        ));
-  }
-
-  @override
-  Widget? tablet() {
-    return Scaffold(
-        body: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: const [
-            Flexible(
-              child: SLHomeSide(),
-              flex: 3,
-            ),
-            Expanded(
-              child: SLDashboard(),
-              flex: 5,
-            )
-          ],
-        ));
-  }
-
-  @override
-  Widget? phone() {
-    return Scaffold(
-      body: SLCustomSlidingWidget(
-        key: controller.slidingKey,
-        menu: const SLHomeSide(),
-        content: const SLDashboard(),
-        menuSize: 280,
-        animationDuration: 200,
-      ),
-    );
+  Widget build(BuildContext context) {
+    print(context.width);
+    if (context.isPhone) {
+      return Scaffold(
+        body: SLCustomSlidingWidget(
+          key: controller.slidingKey,
+          menu: const SLHomeSide(),
+          content: const SLDashboard(),
+          menuSize: context.width * 0.80,
+          animationDuration: 200,
+        ),
+      );
+    } else {
+      return Scaffold(
+          body: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: const [
+          Flexible(
+            child: SLHomeSide(),
+            flex: 3,
+          ),
+          Expanded(
+            child: SLDashboard(),
+            flex: 5,
+          )
+        ],
+      ));
+    }
   }
 }

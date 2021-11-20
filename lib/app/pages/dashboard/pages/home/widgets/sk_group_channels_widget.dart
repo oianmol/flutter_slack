@@ -39,24 +39,24 @@ class SKGroupChannelsWidget extends StatelessWidget {
 
   List<Widget> channels() {
     return [
-      SKHistoryChannel(isPrivate: true),
-      SKHistoryChannel(
+      const SKHistoryChannel(isPrivate: true),
+      const SKHistoryChannel(
         isPrivate: false,
       ),
-      SKHistoryChannel(isPrivate: true),
-      SKHistoryChannel(
+      const SKHistoryChannel(isPrivate: true),
+      const SKHistoryChannel(
         isPrivate: false,
       ),
-      SKHistoryChannel(isPrivate: true),
-      SKHistoryChannel(
+      const SKHistoryChannel(isPrivate: true),
+      const  SKHistoryChannel(
         isPrivate: false,
       ),
-      SKHistoryChannel(isPrivate: true),
-      SKHistoryChannel(
+      const SKHistoryChannel(isPrivate: true),
+      const  SKHistoryChannel(
         isPrivate: false,
       ),
-      SKHistoryChannel(isPrivate: true),
-      SKHistoryChannel(
+      const SKHistoryChannel(isPrivate: true),
+      const SKHistoryChannel(
         isPrivate: false,
       ),
     ];
