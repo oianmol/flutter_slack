@@ -65,10 +65,12 @@ class SKHomeScreen extends GetView<SKHomeController> {
                 callback.call();
               },
               child: Container(
-                child: const FlutterLogo(),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.rectangle,
+                    image: const DecorationImage(
+                        image: NetworkImage(
+                            "https://avatars.slack-edge.com/2018-07-20/401750958992_1b07bb3c946bc863bfc6_88.png")),
                     borderRadius: BorderRadius.circular(8)),
               ),
             ),

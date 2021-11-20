@@ -24,24 +24,51 @@ class SKChatScreen extends StatelessWidget {
           const SKChatMessage().sliverBox,
           const SKChatMessage().sliverBox,
           const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
+          const SKChatMessage().sliverBox,
         ],
       ),
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size(Get.width, 48),
+        preferredSize: const Size.fromHeight(48),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           margin: const EdgeInsets.only(bottom: 16),
-          child: TextField(
-            style: GoogleFonts.notoSans(),
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Message android-india",
-                hintStyle: GoogleFonts.notoSans(),
-                suffixIcon: const Icon(
-                  Icons.send,
-                  color: Colors.black38,
-                )),
-          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+            const Divider(),
+            TextField(
+              style: GoogleFonts.notoSans(),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Message android-india",
+                  hintStyle: GoogleFonts.notoSans(),
+                  suffixIcon: const Icon(
+                    Icons.send,
+                    color: Colors.black38,
+                  )),
+            )
+          ],),
         ),
       ),
     );

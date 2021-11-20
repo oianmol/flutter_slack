@@ -8,29 +8,51 @@ class SKChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Container(
-        child: const SizedBox(
-          height: 32,
-          width: 32,
-        ),
-        decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            image: const DecorationImage(
-                image: NetworkImage(
-                    "https://ca.slack-edge.com/T02TLUWLZ-U2ZG961MW-2bda0fcef939-512")),
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.brown),
-      ),
-      title: Text(
-        "Anmol Verma 🪧 ",
+      leading: messageLeadingImage(),
+      title: messageTitle(),
+      subtitle: messageContent(),
+    );
+  }
+
+  Text messageContent() {
+    return Text("We are @here Please join the android sync!",
         style: GoogleFonts.notoSans(
-            textStyle: Get.textTheme.subtitle1!
-                .copyWith(color: Colors.black, fontWeight: FontWeight.bold)),
+            textStyle:
+                Get.textTheme.subtitle2!.copyWith(color: Colors.black87)));
+  }
+
+  Container messageLeadingImage() {
+    return Container(
+      child: const SizedBox(
+        height: 36,
+        width: 36,
       ),
-      subtitle: Text("We are @here Please join the android sync!",
+      decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          image: const DecorationImage(
+              image: NetworkImage(
+                  "https://ca.slack-edge.com/T02TLUWLZ-U2ZG961MW-2bda0fcef939-512")),
+          borderRadius: BorderRadius.circular(8),),
+    );
+  }
+
+  Wrap messageTitle() {
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text(
+          "Anmol Verma 🪧 ",
+          style: GoogleFonts.notoSans(
+              textStyle: Get.textTheme.subtitle1!.copyWith(
+                  color: Colors.black, fontWeight: FontWeight.bold)),
+        ),
+        Text(
+          "5:04 PM",
           style: GoogleFonts.notoSans(
               textStyle:
-                  Get.textTheme.subtitle2!.copyWith(color: Colors.black87))),
+                  Get.textTheme.caption!.copyWith(color: Colors.black54)),
+        )
+      ],
     );
   }
 }

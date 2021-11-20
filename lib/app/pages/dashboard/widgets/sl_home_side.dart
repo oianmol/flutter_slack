@@ -37,22 +37,25 @@ class SLHomeSide extends GetView<SLDashboardController> {
   organizationsList() {
     return CustomScrollView(
       slivers: [
-        GestureDetector(child: Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 8),
-              width: 72,
-              height: 72,
-              decoration: outerDecoration(),
-              child: organizationLogo(),
-            ),
-            Expanded(
-              child: orgDetails(),
-            )
-          ],
-        ),onTap: (){
-          controller.toggleDrawer();
-        },).sliverBox,
+        GestureDetector(
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 8),
+                width: 72,
+                height: 72,
+                decoration: outerDecoration(),
+                child: organizationLogo(),
+              ),
+              Expanded(
+                child: orgDetails(),
+              )
+            ],
+          ),
+          onTap: () {
+            controller.toggleDrawer();
+          },
+        ).sliverBox,
         SliverFillRemaining(
           hasScrollBody: false,
           child: SideMenuFooter(
@@ -69,43 +72,44 @@ class SLHomeSide extends GetView<SLDashboardController> {
 
   ListTile orgDetails() {
     return ListTile(
-              title: Text(
-                "mutualmobile",
-                style: GoogleFonts.notoSans(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    textStyle: Get.textTheme.headline6),
-              ),
-              subtitle: Text(
-                "mutualmobile.slack.com",
-                style: GoogleFonts.notoSans(
-                    color: Colors.white60,
-                    textStyle: Get.textTheme.subtitle2),
-              ),
-              trailing: Icon(
-                Icons.more_horiz,
-                color: Colors.white,
-              ),
-            );
+      title: Text(
+        "mutualmobile",
+        style: GoogleFonts.notoSans(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            textStyle: Get.textTheme.headline6),
+      ),
+      subtitle: Text(
+        "mutualmobile.slack.com",
+        style: GoogleFonts.notoSans(
+            color: Colors.white60, textStyle: Get.textTheme.subtitle2),
+      ),
+      trailing: Icon(
+        Icons.more_horiz,
+        color: Colors.white,
+      ),
+    );
   }
 
   Container organizationLogo() {
     return Container(
-              margin: EdgeInsets.all(4),
-              width: 64,
-              height: 64,
-              child: FlutterLogo(),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(12)),
-            );
+      margin: const EdgeInsets.all(4),
+      width: 64,
+      height: 64,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+          image: const DecorationImage(
+              image: NetworkImage(
+                  "https://avatars.slack-edge.com/2018-07-20/401750958992_1b07bb3c946bc863bfc6_88.png")),
+          borderRadius: BorderRadius.circular(12)),
+    );
   }
 
   BoxDecoration outerDecoration() {
     return BoxDecoration(
-                shape: BoxShape.rectangle,
-                border: Border.all(color: Colors.white, width: 3),
-                borderRadius: BorderRadius.circular(16));
+        shape: BoxShape.rectangle,
+        border: Border.all(color: Colors.white, width: 3),
+        borderRadius: BorderRadius.circular(16));
   }
 }

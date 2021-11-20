@@ -7,29 +7,31 @@ class SKDirectMessageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ListTile(
+    return ListTile(
       leading: Container(
         child: const SizedBox(
-          height: 52,
-          width: 52,
+          height: 48,
+          width: 48,
         ),
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(8),
+            image: const DecorationImage(
+                image: NetworkImage(
+                    "https://ca.slack-edge.com/T02TLUWLZ-UPAEPG4LV-3032624d37a5-512")),
             color: Colors.brown),
       ),
       trailing: Text("1d ago",
-          style: GoogleFonts.notoSans(
-              textStyle: Get.textTheme.caption)),
+          style: GoogleFonts.notoSans(textStyle: Get.textTheme.caption)),
       title: Text(
         "Saurabh Mishra",
         style: GoogleFonts.notoSans(
-            textStyle: Get.textTheme.headline6!.copyWith(color: Colors.black)),
+            textStyle: Get.textTheme.subtitle1!.copyWith(color: Colors.black)),
       ),
       subtitle: Text("You: Have a great weekend 🙂",
           style: GoogleFonts.notoSans(
               textStyle:
-              Get.textTheme.subtitle1!.copyWith(color: Colors.black87))),
+                  Get.textTheme.subtitle2!.copyWith(color: Colors.black87))),
     );
   }
 }

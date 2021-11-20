@@ -46,7 +46,7 @@ class SKPersonalScreen extends StatelessWidget {
     return GestureDetector(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black26, width: 1),
             shape: BoxShape.rectangle,
