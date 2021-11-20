@@ -15,25 +15,29 @@ class SKGroupChannelsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      title: Row(
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.notoSans(
-                textStyle: Get.textTheme.subtitle1!.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.black87)),
-          ),
-          const Spacer(),
-          canStart
-              ? const Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              : Container()
-        ],
-      ),
+      title: buildTitleRow(),
       initiallyExpanded: true,
       children: channels(),
+    );
+  }
+
+  Row buildTitleRow() {
+    return Row(
+      children: [
+        Text(
+          title,
+          style: GoogleFonts.notoSans(
+              textStyle: Get.textTheme.subtitle1!.copyWith(
+                  fontWeight: FontWeight.bold, color: Colors.black87)),
+        ),
+        const Spacer(),
+        canStart
+            ? const Icon(
+                Icons.add,
+                color: Colors.grey,
+              )
+            : Container()
+      ],
     );
   }
 

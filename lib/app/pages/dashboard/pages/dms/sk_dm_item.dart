@@ -30,6 +30,6 @@ class SKDirectMessageItem extends StatelessWidget {
           style: GoogleFonts.notoSans(
               textStyle:
               Get.textTheme.subtitle1!.copyWith(color: Colors.black87))),
-    );;
+    );
   }
 }

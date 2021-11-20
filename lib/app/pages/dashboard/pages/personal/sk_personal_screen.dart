@@ -81,6 +81,9 @@ class SKPersonalScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
+            image: const DecorationImage(
+                image: NetworkImage(
+                    "https://ca.slack-edge.com/T02TLUWLZ-U2ZG961MW-2bda0fcef939-512")),
             borderRadius: BorderRadius.circular(8),
             color: Colors.brown),
       ),
