@@ -8,20 +8,22 @@ class SKRecentUserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
+      width: 64,
       margin: const EdgeInsets.all(8),
       child: Column(
         children: [
           Container(
-              child: const FlutterLogo(
-                size: 52,
-              ),
+              height: 52,
+              width: 52,
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black26, width: 1),
                   shape: BoxShape.rectangle,
+                  image: const DecorationImage(
+                      image: NetworkImage(
+                          "https://ca.slack-edge.com/T02TLUWLZ-UPAEPG4LV-3032624d37a5-512")),
                   borderRadius: BorderRadius.circular(12))),
           Text(
-            "Prasanna Tolasati",
+            "Saurabh Mishra",
             maxLines: 2,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
