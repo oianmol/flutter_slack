@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/chat/sk_chat_message.dart';
-import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_home_jumpto.dart';
 
 class SKChatScreen extends StatelessWidget {
   const SKChatScreen({Key? key}) : super(key: key);
@@ -11,66 +10,73 @@ class SKChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: CustomScrollView(
-        slivers: [
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-          const SKChatMessage().sliverBox,
-        ],
-      ),
-      bottomNavigationBar: PreferredSize(
-        preferredSize: const Size.fromHeight(48),
-        child: Container(
+      body: SafeArea(child: chatMessages(),),
+    );
+  }
+
+  Widget chatMessages() {
+    return Column(
+      children: [
+        Expanded(
+          child: CustomScrollView(
+            slivers: [
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+              const SKChatMessage().sliverBox,
+            ],
+          ),
+        ),
+        Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-          margin: const EdgeInsets.only(bottom: 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-            const Divider(),
-            TextField(
-              style: GoogleFonts.notoSans(),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Message android-india",
-                  hintStyle: GoogleFonts.notoSans(),
-                  suffixIcon: const Icon(
-                    Icons.send,
-                    color: Colors.black38,
-                  )),
-            )
-          ],),
-        ),
-      ),
+              const Divider(),
+              TextField(
+                style: GoogleFonts.notoSans(),
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Message android-india",
+                    hintStyle: GoogleFonts.notoSans(),
+                    suffixIcon: const Icon(
+                      Icons.send,
+                      color: Colors.black38,
+                    )),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 
@@ -84,10 +90,13 @@ class SKChatScreen extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "android-india",
+            "🔒 android-india",
             style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
           ),
-          Text("24 members >")
+          Text(
+            "24 members >",
+            style: GoogleFonts.notoSans(textStyle: Get.textTheme.caption),
+          )
         ],
       ),
     );

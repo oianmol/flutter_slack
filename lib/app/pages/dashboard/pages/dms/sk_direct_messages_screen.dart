@@ -10,6 +10,14 @@ class SKDirectMessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Get.theme.primaryColor,
+        child: const Icon(
+          Icons.message,
+          color: Colors.white,
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           "Direct Messages",

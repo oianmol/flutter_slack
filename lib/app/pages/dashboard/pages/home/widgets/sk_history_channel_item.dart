@@ -14,11 +14,11 @@ class SKHistoryChannel extends StatelessWidget {
       child: Row(
         children: [
           isPrivate
-              ? const Icon(Icons.lock_outline_rounded)
+              ? const Icon(Icons.lock_outline_rounded,size: 16,)
               : Text(
                   "#",
                   style: textStyle(),
-                ).paddingAll(8),
+                ),
           Expanded(
             child: Text(
               "flutter_hyd",

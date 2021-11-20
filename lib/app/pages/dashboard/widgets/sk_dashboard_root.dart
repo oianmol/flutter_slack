@@ -15,7 +15,6 @@ class SLHomePage extends GetView<SLDashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    print(context.width);
     if (context.isPhone) {
       return Scaffold(
         body: SLCustomSlidingWidget(

@@ -10,6 +10,14 @@ class SKMentionsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Get.theme.primaryColor,
+        child: const Icon(
+          Icons.message,
+          color: Colors.white,
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
           const SKMentionItem().sliverBox,

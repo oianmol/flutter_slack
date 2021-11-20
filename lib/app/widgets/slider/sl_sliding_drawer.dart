@@ -27,6 +27,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   double slideAmount = 0.0;
   double _percent = 0.0;
   bool dragging = false;
+  var canDrag = true;
   static const double WIDTH_GESTURE = 50.0;
 
   @override
@@ -82,6 +83,9 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   }
 
   void _onHorizontalDragStart(DragStartDetails detail) {
+    if(!canDrag){
+      return;
+    }
     if (detail.localPosition.dx <= WIDTH_GESTURE) {
       setState(() {
         dragging = true;
@@ -90,6 +94,9 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   }
 
   void _onHorizontalDragEnd(DragEndDetails detail) {
+    if(!canDrag){
+      return;
+    }
     if (dragging) {
       openOrClose();
       setState(() {
@@ -104,6 +111,9 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
     DragUpdateDetails detail,
     BoxConstraints constraints,
   ) {
+    if(!canDrag){
+      return;
+    }
     // open drawer for left/right type drawer
     var globalPosition = detail.globalPosition.dx;
     globalPosition = globalPosition < 0 ? 0 : globalPosition;
@@ -149,5 +159,17 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
 
   static Offset getOffsetValues(double value) {
     return Offset(value, 0);
+  }
+
+  void disableSwipe() {
+    setState(() {
+      canDrag = false;
+    });
+  }
+
+  void enableSwipe() {
+    setState(() {
+      canDrag = true;
+    });
   }
 }

@@ -8,6 +8,7 @@ import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_home_jumpto.
 class SKHomeScreen extends GetView<SKHomeController> {
   final SKHomeController _controller;
   final Null Function() callback;
+
   SKHomeScreen(this.callback, {Key? key})
       : _controller = Get.put(SKHomeController()),
         super(key: key);
@@ -19,6 +20,14 @@ class SKHomeScreen extends GetView<SKHomeController> {
         builder: (cont) {
           return Scaffold(
             appBar: dashboardAppBar(),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Get.theme.primaryColor,
+              child: const Icon(
+                Icons.message,
+                color: Colors.white,
+              ),
+            ),
             body: CustomScrollView(
               slivers: [
                 const SKHomeJumpTo().sliverBox,
@@ -90,18 +99,20 @@ class SKHomeScreen extends GetView<SKHomeController> {
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Icon(
               Icons.message_outlined,
-              color: Colors.grey,
+              size: 16,
+              color: Colors.black54,
             ).paddingOnly(right: 16),
             Text(
               "Threads",
-              style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1),
+              style: GoogleFonts.notoSans(
+                  textStyle: Get.textTheme.subtitle1, color: Colors.black87),
             )
           ],
-        ),
+        ).marginOnly(bottom: 8),
         width: Get.width,
       ),
       onTap: () {},

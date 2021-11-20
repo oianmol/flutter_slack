@@ -24,7 +24,7 @@ class SKDirectMessageItem extends StatelessWidget {
       trailing: Text("1d ago",
           style: GoogleFonts.notoSans(textStyle: Get.textTheme.caption)),
       title: Text(
-        "Saurabh Mishra",
+        "Carl Jules",
         style: GoogleFonts.notoSans(
             textStyle: Get.textTheme.subtitle1!.copyWith(color: Colors.black)),
       ),

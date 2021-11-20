@@ -54,7 +54,7 @@ class SKMentionItem extends StatelessWidget {
     return RichText(
         text: TextSpan(children: [
       TextSpan(
-          text: "Prasanna Tolasati ",
+          text: "Carl Jules ",
           style: GoogleFonts.notoSans(
               fontWeight: FontWeight.bold, color: Colors.black87)),
       TextSpan(

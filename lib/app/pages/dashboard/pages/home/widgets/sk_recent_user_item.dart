@@ -8,7 +8,7 @@ class SKRecentUserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 64,
+      width: 68,
       margin: const EdgeInsets.all(8),
       child: Column(
         children: [
@@ -23,11 +23,11 @@ class SKRecentUserItem extends StatelessWidget {
                           "https://ca.slack-edge.com/T02TLUWLZ-UPAEPG4LV-3032624d37a5-512")),
                   borderRadius: BorderRadius.circular(12))),
           Text(
-            "Saurabh Mishra",
+            "Carl Jules",
             maxLines: 2,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.notoSans(textStyle: Get.textTheme.caption),
+            style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle2!.copyWith(color: Colors.black87)),
           ).paddingAll(4)
         ],
       ),
