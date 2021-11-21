@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/side_menu_footer.dart';
+import 'package:slack_app/app/pages/set_status/sk_setstatus_screen.dart';
 
 class SKPersonalScreen extends StatelessWidget {
   const SKPersonalScreen({Key? key}) : super(key: key);
@@ -18,7 +19,9 @@ class SKPersonalScreen extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          const SizedBox(height: 8,).sliverBox,
+          const SizedBox(
+            height: 8,
+          ).sliverBox,
           profileYou().sliverBox,
           whatsStatus().sliverBox,
           footerItem(FooterOption(
@@ -27,13 +30,11 @@ class SKPersonalScreen extends StatelessWidget {
           footerItem(FooterOption(Icons.no_accounts, "Set yourself as away"))
               .sliverBox,
           Divider().sliverBox,
-          footerItem(FooterOption(
-                  Icons.bookmark_outline, "Saved items"))
+          footerItem(FooterOption(Icons.bookmark_outline, "Saved items"))
               .sliverBox,
           footerItem(FooterOption(Icons.person_outline, "View profile"))
               .sliverBox,
-          footerItem(FooterOption(
-                  Icons.phone_android, "Notifications"))
+          footerItem(FooterOption(Icons.phone_android, "Notifications"))
               .sliverBox,
           footerItem(FooterOption(Icons.settings_outlined, "Preferences"))
               .sliverBox,
@@ -43,33 +44,38 @@ class SKPersonalScreen extends StatelessWidget {
   }
 
   Widget whatsStatus() {
-    return GestureDetector(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.black26, width: 1),
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(8)),
-        child: Row(
-          children: [
-            const Icon(
-              Icons.emoji_emotions_outlined,
-              color: Colors.black45,
-            ).marginOnly(right: 8),
-            Expanded(
-              child: Text(
-                "What's your status?",
-                style: GoogleFonts.notoSans(
-                    textStyle: Get.textTheme.subtitle1!
-                        .copyWith(color: Colors.black87)),
-              ),
-            )
-          ],
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black26, width: 1),
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(8)),
+      child: InkWell(
+        child: whatsYourStatus(),
+        onTap: () {
+          showStatusBottomSheet();
+        },
       ),
-      onTap: () {},
     );
+  }
+
+  whatsYourStatus() {
+    return Row(
+      children: [
+        const Icon(
+          Icons.emoji_emotions_outlined,
+          color: Colors.black45,
+        ).marginOnly(right: 8),
+        Expanded(
+          child: Text(
+            "What's your status?",
+            style: GoogleFonts.notoSans(
+                textStyle:
+                    Get.textTheme.subtitle1!.copyWith(color: Colors.black87)),
+          ),
+        )
+      ],
+    ).paddingAll(12);
   }
 
   Widget profileYou() {
@@ -105,7 +111,7 @@ class SKPersonalScreen extends StatelessWidget {
         Icon(
           e.icon,
           color: Colors.black45,
-        ).marginOnly(right: 8),
+        ).marginOnly(right: 16),
         Expanded(
           child: Text(e.name,
               style: GoogleFonts.notoSans(
@@ -114,4 +120,21 @@ class SKPersonalScreen extends StatelessWidget {
       ],
     ).paddingAll(4).marginOnly(left: 16, top: 16);
   }
+}
+
+showStatusBottomSheet() {
+  final FocusNode jumpToFocus = FocusNode();
+  showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      backgroundColor: Colors.white,
+      isScrollControlled: true,
+      context: Get.context!,
+      builder: (context) {
+        return Wrap(
+          children: const [SKSetStatusScreen()],
+        );
+      });
+  jumpToFocus.requestFocus();
 }

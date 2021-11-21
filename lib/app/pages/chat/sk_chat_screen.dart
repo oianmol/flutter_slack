@@ -19,6 +19,7 @@ class SKChatScreen extends StatelessWidget {
       children: [
         Expanded(
           child: CustomScrollView(
+            reverse: true,
             slivers: [
               const SKChatMessage().sliverBox,
               const SKChatMessage().sliverBox,
