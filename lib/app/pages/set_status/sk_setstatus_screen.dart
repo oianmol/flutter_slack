@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:slack_app/app/pages/set_status/sk_status_item.dart';
 
 class SKSetStatusScreen extends StatelessWidget {
   const SKSetStatusScreen({Key? key}) : super(key: key);
@@ -23,18 +24,35 @@ class SKSetStatusScreen extends StatelessWidget {
           whatsYourStatus().sliverBox,
           const Divider().sliverBox,
           clearStatusAfter().sliverBox,
-          greySeparator().sliverBox,
-
+          commonHeader("RECENT").sliverBox,
+          statusListRecent(),
+          commonHeader("FOR MUTUALMOBILE").sliverBox,
+          statusListRecent()
         ],
       ),
     );
   }
 
+  Container commonHeader(text) {
+    return Container(
+      color: Colors.grey.shade50,
+      height: 38,
+      alignment: Alignment.bottomLeft,
+      child: Text(
+        text,
+        style: GoogleFonts.notoSans(
+            textStyle:
+                Get.textTheme.caption!.copyWith(fontWeight: FontWeight.w300)),
+      ),
+      padding: const EdgeInsets.only(left: 16, bottom: 8),
+    );
+  }
+
   Container greySeparator() {
     return Container(
-          color: Colors.grey.shade100,
-          height: 32,
-        );
+      color: Colors.grey.shade50,
+      height: 32,
+    );
   }
 
   Widget bottomSheetHeader() {
@@ -111,5 +129,20 @@ class SKSetStatusScreen extends StatelessWidget {
         )
       ],
     ).marginOnly(bottom: 8);
+  }
+
+  statusListRecent() {
+    return SliverList(
+        delegate: SliverChildListDelegate([
+      const SKStatusItem("👍", "PTO NOV 19"),
+      const Divider(),
+      const SKStatusItem("📋", "In a Meeting"),
+      const Divider(),
+      const SKStatusItem("😀", "Some sample status"),
+      const Divider(),
+      const SKStatusItem("😎", "Some status 123"),
+      const Divider(),
+      const SKStatusItem("🎃", "Happy Halloween!")
+    ]));
   }
 }
