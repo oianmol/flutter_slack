@@ -123,7 +123,6 @@ class SKPersonalScreen extends StatelessWidget {
 }
 
 showStatusBottomSheet() {
-  final FocusNode jumpToFocus = FocusNode();
   showModalBottomSheet(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -136,5 +135,4 @@ showStatusBottomSheet() {
           children: const [SKSetStatusScreen()],
         );
       });
-  jumpToFocus.requestFocus();
 }
