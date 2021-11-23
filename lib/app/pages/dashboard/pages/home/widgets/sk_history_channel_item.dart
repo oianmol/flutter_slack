@@ -28,7 +28,7 @@ class SKHistoryChannel extends StatelessWidget {
         ],
       ).marginOnly(left: 16, bottom: 4),
       onTap: () {
-        Get.to(() => const SKChatScreen());
+        Get.to(() => SKChatScreen());
       },
     );
   }

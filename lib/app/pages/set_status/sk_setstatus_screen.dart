@@ -13,7 +13,7 @@ class SKSetStatusScreen extends StatelessWidget {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0))),
+              topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0))),
       child: CustomScrollView(
         slivers: [
           const SizedBox(
@@ -58,7 +58,6 @@ class SKSetStatusScreen extends StatelessWidget {
   Widget bottomSheetHeader() {
     return AppBar(
       elevation: 1,
-      toolbarHeight: 48,
       backgroundColor: Colors.white,
       automaticallyImplyLeading: false,
       title: Text(
