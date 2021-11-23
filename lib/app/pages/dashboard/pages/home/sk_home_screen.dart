@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/dashboard/pages/home/sk_home_controller.dart';
+import 'package:slack_app/app/pages/dashboard/pages/home/sk_newthread_screen.dart';
 import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_group_channels_widget.dart';
 import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_home_jumpto.dart';
 
@@ -20,45 +21,55 @@ class SKHomeScreen extends GetView<SKHomeController> {
         builder: (cont) {
           return Scaffold(
             appBar: dashboardAppBar(),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: Get.theme.primaryColor,
-              child: const Icon(
-                Icons.message,
-                color: Colors.white,
-              ),
-            ),
-            body: CustomScrollView(
-              slivers: [
-                const SKHomeJumpTo().sliverBox,
-                threadsBlock().sliverBox,
-                const SKGroupChannelsWidget(title: "Starred", canStart: false)
-                    .sliverBox,
-                const SKGroupChannelsWidget(
-                        title: "Direct Messages", canStart: true)
-                    .sliverBox,
-                const SKGroupChannelsWidget(title: "Channels", canStart: true)
-                    .sliverBox,
-                const SKGroupChannelsWidget(
-                        title: "Connections", canStart: false)
-                    .sliverBox,
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.add,
-                      color: Colors.grey,
-                    ).paddingAll(8),
-                    Text(
-                      "Add teammates",
-                      style: GoogleFonts.notoSans(
-                          textStyle: Get.textTheme.subtitle1),
-                    ).paddingAll(16)
-                  ],
-                ).marginOnly(left: 8).sliverBox
-              ],
-            ),
+            floatingActionButton: newThreadFAB(),
+            body: buildBodyHome(),
           );
         });
+  }
+
+  CustomScrollView buildBodyHome() {
+    return CustomScrollView(
+            slivers: [
+              const SKHomeJumpTo().sliverBox,
+              threadsBlock().sliverBox,
+              const SKGroupChannelsWidget(title: "Starred", canStart: false)
+                  .sliverBox,
+              const SKGroupChannelsWidget(
+                      title: "Direct Messages", canStart: true)
+                  .sliverBox,
+              const SKGroupChannelsWidget(title: "Channels", canStart: true)
+                  .sliverBox,
+              const SKGroupChannelsWidget(
+                      title: "Connections", canStart: false)
+                  .sliverBox,
+              Row(
+                children: [
+                  const Icon(
+                    Icons.add,
+                    color: Colors.grey,
+                  ).paddingAll(8),
+                  Text(
+                    "Add teammates",
+                    style: GoogleFonts.notoSans(
+                        textStyle: Get.textTheme.subtitle1),
+                  ).paddingAll(16)
+                ],
+              ).marginOnly(left: 8).sliverBox
+            ],
+          );
+  }
+
+  FloatingActionButton newThreadFAB() {
+    return FloatingActionButton(
+            onPressed: () {
+              newThreadBottomSheet();
+            },
+            backgroundColor: Get.theme.primaryColor,
+            child: const Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+          );
   }
 
   AppBar dashboardAppBar() {
@@ -119,5 +130,20 @@ class SKHomeScreen extends GetView<SKHomeController> {
     ).marginOnly(
       left: 8,
     );
+  }
+
+  void newThreadBottomSheet() {
+    showModalBottomSheet(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        backgroundColor: Colors.white,
+        isScrollControlled: true,
+        context: Get.context!,
+        builder: (context) {
+          return Wrap(
+            children: const [SKNewThreadScreen()],
+          );
+        });
   }
 }
