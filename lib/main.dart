@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slack_app/app/pages/dashboard/widgets/overlay/sk_overlay_newmessage.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sk_dashboard_root.dart';
 
 void main() {
