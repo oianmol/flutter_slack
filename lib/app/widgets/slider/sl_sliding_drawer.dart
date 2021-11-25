@@ -60,7 +60,22 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
           builder: (_, child) {
             return Transform.translate(
               offset: getOffsetValues(animation.value),
-              child: child,
+              child: Stack(
+                children: [
+                  child!,
+                  if (animation.value > 0) ...[
+                    GestureDetector(
+                      onTap: () {
+                        closeDrawer();
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 100),
+                        color: Colors.transparent,
+                      ),
+                    )
+                  ]
+                ],
+              ),
             );
           },
           child: GestureDetector(
@@ -69,16 +84,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
             onHorizontalDragEnd: _onHorizontalDragEnd,
             onHorizontalDragUpdate: (detail) =>
                 _onHorizontalDragUpdate(detail, constrain),
-            child: Stack(
-              children: [
-                isDrawerOpen
-                    ? Container(
-                        color: Colors.black12,
-                      )
-                    : Container(),
-                widget.content
-              ],
-            ),
+            child: widget.content,
           ),
         ),
       ]);
