@@ -5,17 +5,13 @@ import 'package:slack_app/app/pages/chat/sk_chat_controller.dart';
 import 'package:slack_app/app/pages/chat/sk_chat_message.dart';
 
 class SKChatScreen extends GetView<SKChatController> {
-  final SKChatController _controller;
-
-  SKChatScreen({Key? key})
-      : _controller = Get.put(SKChatController()),
-        super(key: key);
+  const SKChatScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: _controller,
-      builder: (contr) {
+      init: Get.find<SKChatController>(),
+      builder: (controller) {
         return Scaffold(
           appBar: buildAppBar(),
           backgroundColor: Colors.white,
@@ -85,7 +81,7 @@ class SKChatScreen extends GetView<SKChatController> {
           const Divider(),
           AnimatedContainer(
             duration: const Duration(milliseconds: 500),
-            height: _controller.isExpanded ? 200 : 48,
+            height: controller.isExpanded ? 200 : 48,
             child: sendMessageField(),
           ),
           AnimatedCrossFade(
@@ -104,7 +100,7 @@ class SKChatScreen extends GetView<SKChatController> {
   TextField sendMessageField() {
     return TextField(
       style: GoogleFonts.notoSans(),
-      focusNode: _controller.messageFieldFocus(),
+      focusNode: controller.messageFieldFocus(),
       maxLines: 10,
       decoration: InputDecoration(
           border: InputBorder.none,

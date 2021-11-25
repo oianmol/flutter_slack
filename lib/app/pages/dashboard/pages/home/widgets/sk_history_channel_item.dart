@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/chat/sk_chat_screen.dart';
+import 'package:slack_app/navigation/routes.dart';
 
 class SKHistoryChannel extends StatelessWidget {
   final bool isPrivate;
@@ -14,7 +15,10 @@ class SKHistoryChannel extends StatelessWidget {
       child: Row(
         children: [
           isPrivate
-              ? const Icon(Icons.lock_outline_rounded,size: 16,)
+              ? const Icon(
+                  Icons.lock_outline_rounded,
+                  size: 16,
+                )
               : Text(
                   "#",
                   style: textStyle(),
@@ -28,7 +32,7 @@ class SKHistoryChannel extends StatelessWidget {
         ],
       ).marginOnly(left: 16, bottom: 4),
       onTap: () {
-        Get.to(() => SKChatScreen());
+        Get.toNamed(RouteNames.chat);
       },
     );
   }

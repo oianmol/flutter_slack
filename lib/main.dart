@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:slack_app/app/pages/chat/sk_chat_message.dart';
+import 'package:slack_app/app/pages/chat/sk_chat_screen.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sk_dashboard_root.dart';
+import 'package:slack_app/di/sk_chat_bindings.dart';
+import 'package:slack_app/di/sk_home_bindings.dart';
 
 void main() {
   runApp(const SlackApp());
@@ -20,7 +24,13 @@ class SlackApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: SLHomePage(),
+      getPages: [
+        GetPage(name: "/", page: () => SLHomePage(), binding: SKHomeBindings()),
+        GetPage(
+            name: "/chat",
+            page: () => SKChatScreen(),
+            binding: SKChatBindings())
+      ],
     );
   }
 }

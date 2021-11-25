@@ -7,11 +7,7 @@ import 'package:slack_app/app/widgets/slider/sl_sliding_drawer.dart';
 import 'dart:math';
 
 class SLHomePage extends GetView<SLDashboardController> {
-  final SLDashboardController controller;
-
-  SLHomePage({Key? key})
-      : controller = Get.put(SLDashboardController()),
-        super(key: key);
+  const SLHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
