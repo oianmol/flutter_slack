@@ -17,7 +17,7 @@ class SLHomePage extends GetView<SLDashboardController> {
           key: controller.slidingKey,
           menu: const SLHomeSide(),
           content: const SLDashboard(),
-          menuSize: context.width * 0.80,
+          menuSize: context.width * 0.85,
           animationDuration: 200,
         ),
       );

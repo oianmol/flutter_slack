@@ -48,7 +48,7 @@ class SKPersonalScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       // TODO fix borders for theme.
       decoration: BoxDecoration(
-          border: Border.all(width: 1),
+          border: Border.all(color: Get.theme.dividerColor, width: 1),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8)),
       child: InkWell(
@@ -93,13 +93,10 @@ class SKPersonalScreen extends StatelessWidget {
       ),
       title: Text(
         "Anmol Verma",
-        style: GoogleFonts.notoSans(
-            textStyle: Get.textTheme.headline6),
+        style: GoogleFonts.notoSans(textStyle: Get.textTheme.headline6),
       ),
       subtitle: Text("Active",
-          style: GoogleFonts.notoSans(
-              textStyle:
-                  Get.textTheme.subtitle1)),
+          style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1)),
     );
   }
 
