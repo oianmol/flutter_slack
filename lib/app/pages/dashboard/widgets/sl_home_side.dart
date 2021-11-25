@@ -13,7 +13,6 @@ class SLHomeSide extends GetView<SLDashboardController> {
       init: Get.find<SLDashboardController>(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: Colors.brown,
           appBar: workspaces(),
           body: organizationsList(),
         );
@@ -41,7 +40,7 @@ class SLHomeSide extends GetView<SLDashboardController> {
           child: Row(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 8),
+                margin: const EdgeInsets.only(left: 8, top: 16),
                 width: 72,
                 height: 72,
                 decoration: outerDecoration(),
@@ -76,15 +75,13 @@ class SLHomeSide extends GetView<SLDashboardController> {
         "mutualmobile",
         style: GoogleFonts.notoSans(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
             textStyle: Get.textTheme.headline6),
       ),
       subtitle: Text(
         "mutualmobile.slack.com",
-        style: GoogleFonts.notoSans(
-            color: Colors.white60, textStyle: Get.textTheme.subtitle2),
+        style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle2),
       ),
-      trailing: Icon(
+      trailing: const Icon(
         Icons.more_horiz,
         color: Colors.white,
       ),
@@ -97,7 +94,6 @@ class SLHomeSide extends GetView<SLDashboardController> {
       width: 64,
       height: 64,
       decoration: BoxDecoration(
-          color: Colors.white,
           shape: BoxShape.rectangle,
           image: const DecorationImage(
               image: NetworkImage(
@@ -109,7 +105,7 @@ class SLHomeSide extends GetView<SLDashboardController> {
   BoxDecoration outerDecoration() {
     return BoxDecoration(
         shape: BoxShape.rectangle,
-        border: Border.all(color: Colors.white, width: 3),
+        border: Border.all(color: Get.theme.dividerColor, width: 3),
         borderRadius: BorderRadius.circular(16));
   }
 }

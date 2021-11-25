@@ -26,8 +26,8 @@ class SKSearchScreen extends StatelessWidget {
           Text(
             "Recent Searches",
             style: GoogleFonts.notoSans(
-                textStyle: Get.textTheme.subtitle2!.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.black87)),
+                textStyle: Get.textTheme.subtitle2!
+                    .copyWith(fontWeight: FontWeight.bold)),
           ).marginOnly(left: 16, top: 8).sliverBox,
           const SizedBox(
             height: 8,
@@ -57,8 +57,8 @@ class SKSearchScreen extends StatelessWidget {
           Text(
             "Narrow Your Search",
             style: GoogleFonts.notoSans(
-                textStyle: Get.textTheme.subtitle2!.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.black87)),
+                textStyle: Get.textTheme.subtitle2!
+                    .copyWith(fontWeight: FontWeight.bold)),
           ).marginOnly(left: 16, top: 8).sliverBox,
           const SizedBox(
             height: 8,
@@ -88,7 +88,7 @@ class SKSearchScreen extends StatelessWidget {
       height: 40,
       padding: const EdgeInsets.only(left: 12),
       decoration: BoxDecoration(
-          color: Colors.brown.shade400,
+          color: Get.theme.backgroundColor.withOpacity(0.4),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8)),
       child: Row(
@@ -100,13 +100,13 @@ class SKSearchScreen extends StatelessWidget {
           Expanded(
             child: TextField(
               style: GoogleFonts.notoSans(
-                  textStyle: Get.textTheme.subtitle2!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.w400)),
+                  textStyle: Get.textTheme.subtitle2!
+                      .copyWith(fontWeight: FontWeight.w400)),
               decoration: InputDecoration.collapsed(
                   hintText: "Search for messages and files",
                   hintStyle: GoogleFonts.notoSans(
-                      textStyle: Get.textTheme.subtitle2!.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.w400))),
+                      textStyle: Get.textTheme.subtitle2!
+                          .copyWith(fontWeight: FontWeight.w400))),
             ),
           )
         ],
@@ -120,19 +120,16 @@ class SKSearchScreen extends StatelessWidget {
       children: [
         Icon(
           leadingIcon,
-          color: Colors.black54,
           size: 20,
         ).marginOnly(right: 8),
         Expanded(
           child: Text(title,
-                  style: GoogleFonts.notoSans(
-                      color: Colors.black87,
-                      textStyle: Get.textTheme.subtitle1))
+                  style:
+                      GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1))
               .paddingAll(4),
         ),
         Icon(
           trailingIcon,
-          color: Colors.black54,
           size: 18,
         ).marginOnly(right: 16),
       ],

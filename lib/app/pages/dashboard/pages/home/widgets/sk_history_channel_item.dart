@@ -38,7 +38,6 @@ class SKHistoryChannel extends StatelessWidget {
   }
 
   TextStyle textStyle() {
-    return GoogleFonts.notoSans(
-        textStyle: Get.textTheme.subtitle1!.copyWith(color: Colors.black));
+    return GoogleFonts.notoSans();
   }
 }

@@ -5,7 +5,6 @@ import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_history_chan
 import 'package:slack_app/app/pages/dashboard/pages/home/widgets/sk_recent_text_users.dart';
 
 class SKHomeJumpTo extends StatelessWidget {
-
   const SKHomeJumpTo({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +21,7 @@ class SKHomeJumpTo extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: Get.theme.backgroundColor ,
               isScrollControlled: true,
               context: context,
               builder: (context) {
@@ -30,9 +29,9 @@ class SKHomeJumpTo extends StatelessWidget {
                   children: [
                     Container(
                       height: Get.height * 0.85,
-                      decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
+                      decoration:  BoxDecoration(
+                          color: Get.theme.backgroundColor ,
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(25.0),
                               topRight: Radius.circular(25.0))),
                       child: CustomScrollView(
@@ -48,7 +47,7 @@ class SKHomeJumpTo extends StatelessWidget {
                                 textStyle: GoogleFonts.notoSans(
                                     textStyle: Get.textTheme.subtitle1,
                                     fontWeight: FontWeight.bold)),
-                          ).marginOnly(left: 24).sliverBox,
+                          ).marginOnly(left: 24,bottom: 8).sliverBox,
                           const SKHistoryChannels()
                         ],
                       ),
@@ -67,7 +66,9 @@ class SKHomeJumpTo extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: jumpToTextContainer(jumpToEditText(jumpToFocus), const EdgeInsets.all(0),
+          child: jumpToTextContainer(
+              jumpToEditText(jumpToFocus),
+              const EdgeInsets.all(0),
               const EdgeInsets.only(left: 12, right: 0, top: 8, bottom: 8)),
         ),
         TextButton(
@@ -91,7 +92,8 @@ class SKHomeJumpTo extends StatelessWidget {
 
   BoxDecoration jumpToDecoration() {
     return BoxDecoration(
-        border: Border.all(color: Colors.black26, width: 1),
+        border: Border.all(
+            color: Get.isDarkMode ? Colors.white30 : Colors.black26, width: 1),
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(8));
   }
@@ -108,7 +110,7 @@ class SKHomeJumpTo extends StatelessWidget {
       children: [
         const Icon(
           Icons.search,
-          color: Colors.black54,
+          size: 20,
         ).paddingAll(8),
         Expanded(
           child: TextField(

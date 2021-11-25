@@ -29,47 +29,44 @@ class SKHomeScreen extends GetView<SKHomeController> {
 
   CustomScrollView buildBodyHome() {
     return CustomScrollView(
-            slivers: [
-              const SKHomeJumpTo().sliverBox,
-              threadsBlock().sliverBox,
-              const SKGroupChannelsWidget(title: "Starred", canStart: false)
-                  .sliverBox,
-              const SKGroupChannelsWidget(
-                      title: "Direct Messages", canStart: true)
-                  .sliverBox,
-              const SKGroupChannelsWidget(title: "Channels", canStart: true)
-                  .sliverBox,
-              const SKGroupChannelsWidget(
-                      title: "Connections", canStart: false)
-                  .sliverBox,
-              Row(
-                children: [
-                  const Icon(
-                    Icons.add,
-                    color: Colors.grey,
-                  ).paddingAll(8),
-                  Text(
-                    "Add teammates",
-                    style: GoogleFonts.notoSans(
-                        textStyle: Get.textTheme.subtitle1),
-                  ).paddingAll(16)
-                ],
-              ).marginOnly(left: 8).sliverBox
-            ],
-          );
+      slivers: [
+        const SKHomeJumpTo().sliverBox,
+        threadsBlock().sliverBox,
+        const SKGroupChannelsWidget(title: "Starred", canStart: false)
+            .sliverBox,
+        const SKGroupChannelsWidget(title: "Direct Messages", canStart: true)
+            .sliverBox,
+        const SKGroupChannelsWidget(title: "Channels", canStart: true)
+            .sliverBox,
+        const SKGroupChannelsWidget(title: "Connections", canStart: false)
+            .sliverBox,
+        Row(
+          children: [
+            const Icon(
+              Icons.add,
+              color: Colors.grey,
+            ).paddingAll(8),
+            Text(
+              "Add teammates",
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1),
+            ).paddingAll(16)
+          ],
+        ).marginOnly(left: 8).sliverBox
+      ],
+    );
   }
 
   FloatingActionButton newThreadFAB() {
     return FloatingActionButton(
-            onPressed: () {
-              newThreadBottomSheet();
-            },
-            backgroundColor: Get.theme.primaryColor,
-            child: const Icon(
-              Icons.message,
-              color: Colors.white,
-            ),
-          );
+      onPressed: () {
+        newThreadBottomSheet();
+      },
+      backgroundColor: Get.theme.primaryColor,
+      child: const Icon(
+        Icons.message,
+        color: Colors.white,
+      ),
+    );
   }
 
   AppBar dashboardAppBar() {
@@ -115,12 +112,10 @@ class SKHomeScreen extends GetView<SKHomeController> {
             const Icon(
               Icons.message_outlined,
               size: 16,
-              color: Colors.black54,
             ).paddingOnly(right: 16),
             Text(
               "Threads",
-              style: GoogleFonts.notoSans(
-                  textStyle: Get.textTheme.subtitle1, color: Colors.black87),
+              style: GoogleFonts.notoSans(),
             )
           ],
         ).marginOnly(bottom: 8),

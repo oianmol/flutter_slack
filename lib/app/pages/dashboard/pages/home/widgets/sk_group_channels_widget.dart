@@ -26,9 +26,7 @@ class SKGroupChannelsWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: GoogleFonts.notoSans(
-              textStyle: Get.textTheme.subtitle1!.copyWith(
-                  fontWeight: FontWeight.bold, color: Colors.black87)),
+          style: GoogleFonts.notoSans(fontWeight: FontWeight.bold),
         ),
         const Spacer(),
         canStart

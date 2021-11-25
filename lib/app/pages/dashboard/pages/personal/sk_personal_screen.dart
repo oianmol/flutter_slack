@@ -46,8 +46,9 @@ class SKPersonalScreen extends StatelessWidget {
   Widget whatsStatus() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      // TODO fix borders for theme.
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black26, width: 1),
+          border: Border.all(width: 1),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8)),
       child: InkWell(
@@ -64,14 +65,11 @@ class SKPersonalScreen extends StatelessWidget {
       children: [
         const Icon(
           Icons.emoji_emotions_outlined,
-          color: Colors.black45,
         ).marginOnly(right: 8),
         Expanded(
           child: Text(
             "What's your status?",
-            style: GoogleFonts.notoSans(
-                textStyle:
-                    Get.textTheme.subtitle1!.copyWith(color: Colors.black87)),
+            style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1),
           ),
         )
       ],
@@ -96,12 +94,12 @@ class SKPersonalScreen extends StatelessWidget {
       title: Text(
         "Anmol Verma",
         style: GoogleFonts.notoSans(
-            textStyle: Get.textTheme.headline6!.copyWith(color: Colors.black)),
+            textStyle: Get.textTheme.headline6),
       ),
       subtitle: Text("Active",
           style: GoogleFonts.notoSans(
               textStyle:
-                  Get.textTheme.subtitle1!.copyWith(color: Colors.black54))),
+                  Get.textTheme.subtitle1)),
     );
   }
 
@@ -110,12 +108,10 @@ class SKPersonalScreen extends StatelessWidget {
       children: [
         Icon(
           e.icon,
-          color: Colors.black45,
         ).marginOnly(right: 16),
         Expanded(
           child: Text(e.name,
-              style: GoogleFonts.notoSans(
-                  color: Colors.black87, textStyle: Get.textTheme.subtitle1)),
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1)),
         )
       ],
     ).paddingAll(4).marginOnly(left: 16, top: 16);

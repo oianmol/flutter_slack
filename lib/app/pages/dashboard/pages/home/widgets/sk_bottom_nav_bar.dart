@@ -13,9 +13,6 @@ class SKBottomNavBar extends GetView<SLDashboardController> {
         builder: (cont) {
           return BottomNavigationBar(
             currentIndex: controller.selectedIndex,
-            backgroundColor: Colors.white,
-            selectedItemColor: Colors.black87,
-            unselectedItemColor: Colors.black38,
             type: BottomNavigationBarType.fixed,
             selectedLabelStyle: GoogleFonts.notoSans(),
             unselectedLabelStyle: GoogleFonts.notoSans(),

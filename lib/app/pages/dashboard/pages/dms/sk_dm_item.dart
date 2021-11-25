@@ -26,12 +26,12 @@ class SKDirectMessageItem extends StatelessWidget {
       title: Text(
         "Carl Jules",
         style: GoogleFonts.notoSans(
-            textStyle: Get.textTheme.subtitle1!.copyWith(color: Colors.black)),
+            textStyle: Get.textTheme.subtitle1),
       ),
       subtitle: Text("You: Have a great weekend 🙂",
           style: GoogleFonts.notoSans(
               textStyle:
-                  Get.textTheme.subtitle2!.copyWith(color: Colors.black87))),
+                  Get.textTheme.subtitle2)),
     );
   }
 }

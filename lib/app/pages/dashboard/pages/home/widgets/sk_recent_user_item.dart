@@ -16,7 +16,6 @@ class SKRecentUserItem extends StatelessWidget {
               height: 52,
               width: 52,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black26, width: 1),
                   shape: BoxShape.rectangle,
                   image: const DecorationImage(
                       image: NetworkImage(
@@ -27,7 +26,7 @@ class SKRecentUserItem extends StatelessWidget {
             maxLines: 2,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle2!.copyWith(color: Colors.black87)),
+            style: GoogleFonts.notoSans(),
           ).paddingAll(4)
         ],
       ),

@@ -23,8 +23,17 @@ class SlackApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),
+          brightness: Brightness.light,
+          primarySwatch: Colors.brown,
+          backgroundColor: Colors.white,
+          dividerColor: Colors.black12,
+          iconTheme: const IconThemeData(color: Colors.black54)),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          backgroundColor: Colors.black87,
+          dividerColor: Colors.white70,
+          iconTheme: const IconThemeData(color: Colors.white70)),
+      themeMode: ThemeMode.system,
       getPages: [
         GetPage(
             name: RouteNames.home,

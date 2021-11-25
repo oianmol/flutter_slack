@@ -3,17 +3,17 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SideMenuFooter extends StatelessWidget {
-  List<FooterOption> options;
+  final List<FooterOption> options;
 
-  SideMenuFooter({Key? key, required this.options}) : super(key: key);
+  const SideMenuFooter({Key? key, required this.options}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Spacer(),
-        const Divider(
-          color: Colors.white12,
+        Divider(
+          color: !Get.isDarkMode ? Colors.black12 : Colors.white12,
         ),
         ...options
             .map(
@@ -31,11 +31,9 @@ class SideMenuFooter extends StatelessWidget {
     return ListTile(
       leading: Icon(
         e.icon,
-        color: Colors.white,
       ),
       title: Text(e.name,
-          style: GoogleFonts.notoSans(
-              color: Colors.white, textStyle: Get.textTheme.subtitle1)),
+          style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1)),
     );
   }
 }

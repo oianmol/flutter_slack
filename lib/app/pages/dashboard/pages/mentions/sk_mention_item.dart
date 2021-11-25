@@ -56,14 +56,16 @@ class SKMentionItem extends StatelessWidget {
       TextSpan(
           text: "Carl Jules ",
           style: GoogleFonts.notoSans(
-              fontWeight: FontWeight.bold, color: Colors.black87)),
+              fontWeight: FontWeight.bold,
+              color: Get.textTheme.subtitle1!.color!)),
       TextSpan(
           text: "reacted in",
-          style: GoogleFonts.notoSans(color: Colors.black87)),
+          style: GoogleFonts.notoSans(color: Get.textTheme.subtitle1!.color!)),
       TextSpan(
           text: " 🔒 prj-someproject-int",
           style: GoogleFonts.notoSans(
-              fontWeight: FontWeight.bold, color: Colors.black87))
+              fontWeight: FontWeight.bold,
+              color: Get.textTheme.subtitle1!.color!))
     ]));
   }
 }
