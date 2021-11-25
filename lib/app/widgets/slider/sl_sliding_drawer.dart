@@ -50,27 +50,36 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
       return Stack(children: <Widget>[
         /// Display Menu
         SLCustomSlidingMenu(
-      sliderMenu: widget.menu,
-      sliderMenuOpenSize: widget.menuSize,
+          sliderMenu: widget.menu,
+          sliderMenuOpenSize: widget.menuSize,
         ),
 
         /// Display Main Screen
         AnimatedBuilder(
-      animation: _animationDrawerController,
-      builder: (_, child) {
-        return Transform.translate(
-          offset: getOffsetValues(animation.value),
-          child: child,
-        );
-      },
-      child: GestureDetector(
-        behavior: HitTestBehavior.deferToChild,
-        onHorizontalDragStart: _onHorizontalDragStart,
-        onHorizontalDragEnd: _onHorizontalDragEnd,
-        onHorizontalDragUpdate: (detail) =>
-            _onHorizontalDragUpdate(detail, constrain),
-        child: widget.content,
-      ),
+          animation: _animationDrawerController,
+          builder: (_, child) {
+            return Transform.translate(
+              offset: getOffsetValues(animation.value),
+              child: child,
+            );
+          },
+          child: GestureDetector(
+            behavior: HitTestBehavior.deferToChild,
+            onHorizontalDragStart: _onHorizontalDragStart,
+            onHorizontalDragEnd: _onHorizontalDragEnd,
+            onHorizontalDragUpdate: (detail) =>
+                _onHorizontalDragUpdate(detail, constrain),
+            child: Stack(
+              children: [
+                isDrawerOpen
+                    ? Container(
+                        color: Colors.black12,
+                      )
+                    : Container(),
+                widget.content
+              ],
+            ),
+          ),
         ),
       ]);
     });
@@ -83,7 +92,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   }
 
   void _onHorizontalDragStart(DragStartDetails detail) {
-    if(!canDrag){
+    if (!canDrag) {
       return;
     }
     if (detail.localPosition.dx <= WIDTH_GESTURE) {
@@ -94,7 +103,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
   }
 
   void _onHorizontalDragEnd(DragEndDetails detail) {
-    if(!canDrag){
+    if (!canDrag) {
       return;
     }
     if (dragging) {
@@ -111,7 +120,7 @@ class SLCustomSlidingWidgetState extends State<SLCustomSlidingWidget>
     DragUpdateDetails detail,
     BoxConstraints constraints,
   ) {
-    if(!canDrag){
+    if (!canDrag) {
       return;
     }
     // open drawer for left/right type drawer

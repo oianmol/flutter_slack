@@ -5,6 +5,7 @@ import 'package:slack_app/app/pages/chat/sk_chat_screen.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sk_dashboard_root.dart';
 import 'package:slack_app/di/sk_chat_bindings.dart';
 import 'package:slack_app/di/sk_home_bindings.dart';
+import 'package:slack_app/navigation/routes.dart';
 
 void main() {
   runApp(const SlackApp());
@@ -25,9 +26,12 @@ class SlackApp extends StatelessWidget {
         primarySwatch: Colors.brown,
       ),
       getPages: [
-        GetPage(name: "/", page: () => SLHomePage(), binding: SKHomeBindings()),
         GetPage(
-            name: "/chat",
+            name: RouteNames.home,
+            page: () => SLHomePage(),
+            binding: SKHomeBindings()),
+        GetPage(
+            name: RouteNames.chat,
             page: () => SKChatScreen(),
             binding: SKChatBindings())
       ],
