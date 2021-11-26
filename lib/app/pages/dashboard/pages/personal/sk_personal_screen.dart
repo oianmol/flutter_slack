@@ -120,7 +120,6 @@ showStatusBottomSheet() {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      backgroundColor: Colors.white,
       isScrollControlled: true,
       context: Get.context!,
       builder: (context) {

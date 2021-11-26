@@ -11,14 +11,10 @@ class SKSetStatusScreen extends StatelessWidget {
     return Container(
       height: Get.height * 0.85,
       decoration: const BoxDecoration(
-          color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0))),
       child: CustomScrollView(
         slivers: [
-          const SizedBox(
-            height: 8,
-          ).sliverBox,
           bottomSheetHeader().sliverBox,
           greySeparator().sliverBox,
           whatsYourStatus().sliverBox,
@@ -35,7 +31,7 @@ class SKSetStatusScreen extends StatelessWidget {
 
   Container commonHeader(text) {
     return Container(
-      color: Colors.grey.shade50,
+      color: Get.theme.backgroundColor,
       height: 38,
       alignment: Alignment.bottomLeft,
       child: Text(
@@ -50,7 +46,7 @@ class SKSetStatusScreen extends StatelessWidget {
 
   Container greySeparator() {
     return Container(
-      color: Colors.grey.shade50,
+      color: Get.theme.backgroundColor,
       height: 32,
     );
   }
@@ -58,7 +54,7 @@ class SKSetStatusScreen extends StatelessWidget {
   Widget bottomSheetHeader() {
     return AppBar(
       elevation: 1,
-      backgroundColor: Colors.white,
+      backgroundColor: Get.theme.backgroundColor.withOpacity(0.6),
       automaticallyImplyLeading: false,
       title: Text(
         "Set a status",
@@ -86,18 +82,16 @@ class SKSetStatusScreen extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.emoji_emotions_outlined,
-              color: Colors.black54,
             )),
         Expanded(
           child: TextField(
             style: GoogleFonts.notoSans(
                 textStyle: Get.textTheme.subtitle2!.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.w400)),
+                    fontWeight: FontWeight.w400)),
             decoration: InputDecoration.collapsed(
                 hintText: "What's your status?",
                 hintStyle: GoogleFonts.notoSans(
-                    textStyle: Get.textTheme.subtitle2!
-                        .copyWith(color: Colors.black54))),
+                    textStyle: Get.textTheme.subtitle2)),
           ),
         )
       ],
@@ -118,11 +112,10 @@ class SKSetStatusScreen extends StatelessWidget {
               "Today",
               style: GoogleFonts.notoSans(
                   textStyle:
-                      Get.textTheme.subtitle2!.copyWith(color: Colors.black87)),
+                      Get.textTheme.subtitle2),
             ).marginOnly(right: 8),
             const Icon(
               Icons.navigate_next,
-              color: Colors.black54,
             ).marginOnly(right: 8)
           ],
         )

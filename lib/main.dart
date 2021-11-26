@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:slack_app/app/pages/chat/sk_chat_message.dart';
 import 'package:slack_app/app/pages/chat/sk_chat_screen.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sk_dashboard_root.dart';
 import 'package:slack_app/app/styles/sk_app_theme.dart';
