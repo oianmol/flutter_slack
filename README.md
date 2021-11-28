@@ -10,10 +10,11 @@ A new Flutter project with Slack UI
 ![Screenshot](art/4.png)
 ![Screenshot](art/5.png)
 
-## TODO
+## WIP
 
 - UI & Styling [In Progress]
 - Business Logic [TODO]
+- [GRPC Server](https://github.com/Anmol92verma/slack_kotlin_grpc)
 
 ## Getting Started
 
