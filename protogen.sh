@@ -1,0 +1,1 @@
+protoc --dart_out=grpc:lib/src/generated --proto_path= protos/me/slack/slackbase.proto

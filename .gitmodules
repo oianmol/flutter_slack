@@ -1,0 +1,3 @@
+[submodule "protos"]
+	path = protos
+	url = github.com-anmol92verma:Anmol92verma/slack_kotlin_grpc_proto.git

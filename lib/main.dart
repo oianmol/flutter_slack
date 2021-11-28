@@ -4,8 +4,12 @@ import 'package:slack_app/app/pages/chat/sk_chat_screen.dart';
 import 'package:slack_app/app/pages/dashboard/widgets/sk_dashboard_root.dart';
 import 'package:slack_app/app/styles/sk_app_theme.dart';
 import 'package:slack_app/di/sk_chat_bindings.dart';
+import 'package:slack_app/di/sk_global_bindings.dart';
 import 'package:slack_app/di/sk_home_bindings.dart';
 import 'package:slack_app/navigation/routes.dart';
+
+import 'app/pages/onboarding/sk_onboarding_bindings.dart';
+import 'app/pages/onboarding/sk_onboarding_screen.dart';
 
 void main() {
   runApp(const SlackApp());
@@ -24,15 +28,21 @@ class SlackApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightThemeData(),
       darkTheme: darkThemeData(),
+      initialBinding: SKGlobalBindings(),
       themeMode: ThemeMode.system,
+      initialRoute: RouteNames.onboarding,
       getPages: [
         GetPage(
+            name: RouteNames.onboarding,
+            page: () => const SKOnboardingScreen(),
+            binding: SKOnboardingBindings()),
+        GetPage(
             name: RouteNames.home,
-            page: () => SLHomePage(),
+            page: () => const SLHomePage(),
             binding: SKHomeBindings()),
         GetPage(
             name: RouteNames.chat,
-            page: () => SKChatScreen(),
+            page: () => const SKChatScreen(),
             binding: SKChatBindings())
       ],
     );
