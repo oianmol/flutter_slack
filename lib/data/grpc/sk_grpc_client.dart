@@ -14,7 +14,7 @@ class SKGrpcClient {
 
   void createClientChannel() async {
     _clientChannel = ClientChannel(
-      "192.168.1.11",
+      "192.168.1.16",port: 5001,
       options: const ChannelOptions(
         credentials: ChannelCredentials.insecure(),
         idleTimeout: Duration(seconds: 10),
