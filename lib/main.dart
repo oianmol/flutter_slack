@@ -31,21 +31,25 @@ class SlackApp extends StatelessWidget {
       initialBinding: SKGlobalBindings(),
       themeMode: ThemeMode.system,
       initialRoute: RouteNames.onboarding,
-      getPages: [
-        GetPage(
-            name: RouteNames.onboarding,
-            page: () => const SKOnboardingScreen(),
-            binding: SKOnboardingBindings()),
-        GetPage(
-            name: RouteNames.home,
-            page: () => const SLHomePage(),
-            binding: SKHomeBindings()),
-        GetPage(
-            name: RouteNames.chat,
-            page: () => const SKChatScreen(),
-            binding: SKChatBindings())
-      ],
+      getPages: getPages(),
     );
+  }
+
+  List<GetPage<dynamic>> getPages() {
+    return [
+      GetPage(
+          name: RouteNames.onboarding,
+          page: () => const SKOnboardingScreen(),
+          binding: SKOnboardingBindings()),
+      GetPage(
+          name: RouteNames.home,
+          page: () => const SLHomePage(),
+          binding: SKHomeBindings()),
+      GetPage(
+          name: RouteNames.chat,
+          page: () => const SKChatScreen(),
+          binding: SKChatBindings())
+    ];
   }
 
   ThemeData darkThemeData() {
