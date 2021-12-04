@@ -25,17 +25,44 @@ class SLHomePage extends GetView<SLDashboardController> {
       return Scaffold(
           body: Row(
         mainAxisSize: MainAxisSize.max,
-        children: const [
+        children: [
           Flexible(
-            child: SLHomeSide(),
-            flex: 3,
+            child: const SLHomeSide(),
+            flex: context.flex().first,
           ),
           Expanded(
-            child: SLDashboard(),
-            flex: 5,
+            child: const SLDashboard(),
+            flex: context.flex().second,
           )
         ],
       ));
     }
+  }
+}
+
+class Pair<F, S> {
+  F first;
+  S second;
+
+  Pair(this.first, this.second);
+}
+
+extension Flex on BuildContext {
+  Pair<int, int> flex() {
+    int first = 2;
+    int second = 4;
+    if (isSmallTablet) {
+      if (isPortrait) {
+        first = 2;
+        second = 4;
+      } else {
+        first = 2;
+        second = 6;
+      }
+    } else {
+      first = 2;
+      second = 5;
+    }
+    return Pair(first, second);
   }
 }
