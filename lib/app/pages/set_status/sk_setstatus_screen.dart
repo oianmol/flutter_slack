@@ -4,16 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/set_status/sk_status_item.dart';
 
 class SKSetStatusScreen extends StatelessWidget {
-  const SKSetStatusScreen({Key? key}) : super(key: key);
+  final ScrollController controller;
+
+  const SKSetStatusScreen(this.controller, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.85,
       decoration: const BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0))),
+              topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0))),
       child: CustomScrollView(
+        controller: controller,
         slivers: [
           bottomSheetHeader().sliverBox,
           greySeparator().sliverBox,
@@ -52,17 +55,21 @@ class SKSetStatusScreen extends StatelessWidget {
   }
 
   Widget bottomSheetHeader() {
-    return AppBar(
-      elevation: 1,
-      backgroundColor: Get.theme.backgroundColor.withOpacity(0.6),
-      automaticallyImplyLeading: false,
-      title: Text(
-        "Set a status",
-        style: GoogleFonts.notoSans(
-            textStyle:
-                Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)),
-      ),
-      actions: [
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              "",
+              style: GoogleFonts.notoSans(color: Colors.white),
+            )),
+        Text(
+          "Set a status",
+          style: GoogleFonts.notoSans(
+              textStyle: Get.textTheme.subtitle1!
+                  .copyWith(fontWeight: FontWeight.bold)),
+        ),
         TextButton(
             onPressed: () {
               Get.back();
@@ -86,12 +93,12 @@ class SKSetStatusScreen extends StatelessWidget {
         Expanded(
           child: TextField(
             style: GoogleFonts.notoSans(
-                textStyle: Get.textTheme.subtitle2!.copyWith(
-                    fontWeight: FontWeight.w400)),
+                textStyle: Get.textTheme.subtitle2!
+                    .copyWith(fontWeight: FontWeight.w400)),
             decoration: InputDecoration.collapsed(
                 hintText: "What's your status?",
-                hintStyle: GoogleFonts.notoSans(
-                    textStyle: Get.textTheme.subtitle2)),
+                hintStyle:
+                    GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle2)),
           ),
         )
       ],
@@ -110,9 +117,7 @@ class SKSetStatusScreen extends StatelessWidget {
           children: [
             Text(
               "Today",
-              style: GoogleFonts.notoSans(
-                  textStyle:
-                      Get.textTheme.subtitle2),
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle2),
             ).marginOnly(right: 8),
             const Icon(
               Icons.navigate_next,

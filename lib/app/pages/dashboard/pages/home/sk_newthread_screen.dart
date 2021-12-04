@@ -4,17 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:slack_app/app/pages/dashboard/pages/home/sk_new_thread_channel.dart';
 
 class SKNewThreadScreen extends StatelessWidget {
-  const SKNewThreadScreen({Key? key}) : super(key: key);
+  final ScrollController controller;
+
+  const SKNewThreadScreen(this.controller, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.85,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0))),
+              topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0))),
       child: CustomScrollView(
+        controller: controller,
         slivers: [
           buildHeader().sliverBox,
           toFieldSearch().sliverBox,
@@ -40,27 +42,34 @@ class SKNewThreadScreen extends StatelessWidget {
     );
   }
 
-  AppBar buildHeader() {
-    return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 1,
-      automaticallyImplyLeading: false,
-      leading: IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        icon: const Icon(
-          Icons.clear,
-          color: Colors.black54,
+  Widget buildHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.clear,
+            color: Colors.black54,
+          ),
         ),
-      ),
-      centerTitle: true,
-      title: Text(
-        "New Message",
-        style: GoogleFonts.notoSans(
-            textStyle:
-                Get.textTheme.subtitle1!.copyWith(fontWeight: FontWeight.bold)),
-      ),
+        Text(
+          "New Message",
+          style: GoogleFonts.notoSans(
+              textStyle: Get.textTheme.subtitle1!
+                  .copyWith(fontWeight: FontWeight.bold)),
+        ),
+        IconButton(
+          // spacing factor right
+          onPressed: () {},
+          icon: const Icon(
+            Icons.clear,
+            color: Colors.white,
+          ),
+        )
+      ],
     );
   }
 

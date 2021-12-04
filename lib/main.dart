@@ -20,10 +20,6 @@ class SlackApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return materialApp();
-  }
-
-  GetMaterialApp materialApp() {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightThemeData(),

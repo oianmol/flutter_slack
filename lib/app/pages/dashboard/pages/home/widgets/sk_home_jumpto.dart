@@ -21,39 +21,43 @@ class SKHomeJumpTo extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              backgroundColor: Get.theme.backgroundColor ,
+              backgroundColor: Colors.transparent,
               isScrollControlled: true,
               context: context,
               builder: (context) {
-                return Wrap(
-                  children: [
-                    Container(
-                      height: Get.height * 0.85,
-                      decoration:  BoxDecoration(
-                          color: Get.theme.backgroundColor ,
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0))),
-                      child: CustomScrollView(
-                        slivers: [
-                          const SizedBox(
-                            height: 8,
-                          ).sliverBox,
-                          jumpToTFRow(jumpToFocus).sliverBox,
-                          const SKRecentTextUsers().sliverBox,
-                          Text(
-                            "History",
-                            style: GoogleFonts.notoSans(
-                                textStyle: GoogleFonts.notoSans(
-                                    textStyle: Get.textTheme.subtitle1,
-                                    fontWeight: FontWeight.bold)),
-                          ).marginOnly(left: 24,bottom: 8).sliverBox,
-                          const SKHistoryChannels()
-                        ],
-                      ),
-                    )
-                  ],
-                );
+                return DraggableScrollableSheet(
+                    maxChildSize: 0.9,
+                    minChildSize: 0.4,
+                    initialChildSize: 0.9,
+                    builder: (context, scrollController) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            color: Get.theme.backgroundColor,
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(25.0),
+                                topRight: Radius.circular(25.0))),
+                        child: CustomScrollView(
+                          controller: scrollController,
+                          slivers: [
+                            const SizedBox(
+                              height: 8,
+                            ).sliverBox,
+                            jumpToTFRow(jumpToFocus).sliverBox,
+                            const SKRecentTextUsers().sliverBox,
+                            Text(
+                              "History",
+                              style: GoogleFonts.notoSans(
+                                  textStyle: GoogleFonts.notoSans(
+                                      textStyle: Get.textTheme.subtitle1,
+                                      fontWeight: FontWeight.bold)),
+                            )
+                                .marginOnly(left: 24, bottom: 8)
+                                .sliverBox,
+                            const SKHistoryChannels()
+                          ],
+                        ),
+                      );
+                    });
               });
           jumpToFocus.requestFocus();
         },

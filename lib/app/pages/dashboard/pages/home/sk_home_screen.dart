@@ -132,13 +132,17 @@ class SKHomeScreen extends GetView<SKHomeController> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         isScrollControlled: true,
         context: Get.context!,
         builder: (context) {
-          return Wrap(
-            children: const [SKNewThreadScreen()],
-          );
+          return DraggableScrollableSheet(
+              initialChildSize: 0.8,
+              maxChildSize: 0.9,
+              minChildSize: 0.5,
+              builder: (context, controller) {
+                return SKNewThreadScreen(controller);
+              });
         });
   }
 }

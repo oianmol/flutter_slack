@@ -121,10 +121,15 @@ showStatusBottomSheet() {
         borderRadius: BorderRadius.circular(10.0),
       ),
       isScrollControlled: true,
+      backgroundColor: Colors.transparent,
       context: Get.context!,
       builder: (context) {
-        return Wrap(
-          children: const [SKSetStatusScreen()],
-        );
+        return DraggableScrollableSheet(
+            initialChildSize: 0.8,
+            maxChildSize: 0.9,
+            minChildSize: 0.8,
+            builder: (context, controller) {
+              return SKSetStatusScreen(controller);
+            });
       });
 }
