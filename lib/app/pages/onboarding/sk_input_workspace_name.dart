@@ -21,24 +21,23 @@ class SKInputWorkspaceName extends StatelessWidget {
             },
             style: GoogleFonts.notoSans(
                 textStyle:
-                Get.textTheme.headline6!.copyWith(color: Colors.white)),
+                Get.textTheme.headline6),
             textAlign: TextAlign.end,
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "yourteam",
                 labelStyle: GoogleFonts.notoSans(
                     textStyle:
-                    Get.textTheme.headline6!.copyWith(color: Colors.white)),
+                    Get.textTheme.headline6),
                 hintStyle: GoogleFonts.notoSans(
-                    textStyle: Get.textTheme.headline6!
-                        .copyWith(color: Colors.white70))),
+                    textStyle: Get.textTheme.headline6)),
           ),alignment: Alignment.centerRight,),
         ),
         Expanded(child: Text(
           ".slack.com",
           style: GoogleFonts.notoSans(
               textStyle:
-              Get.textTheme.headline6!.copyWith(color: Colors.white)),
+              Get.textTheme.headline6),
         ),)
       ],
     );

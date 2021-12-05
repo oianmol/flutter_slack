@@ -19,17 +19,13 @@ class SKOnboardingScreen extends GetView<SKOnboardingController> {
 
   Scaffold onBoardingScaffold(SKOnboardingController controller) {
     return Scaffold(
-      backgroundColor: Colors.green,
       bottomNavigationBar: SafeArea(
-          child: MaterialButton(
-        color: Colors.white,
+          child: ElevatedButton(
         onPressed: () {
           controller.createWorkspace();
         },
         child: Text("Create a Team",
-            style: GoogleFonts.notoSans(
-                textStyle:
-                    Get.textTheme.headline6!.copyWith(color: Colors.black))),
+            style: GoogleFonts.notoSans(textStyle: Get.textTheme.headline6!.copyWith(color: Colors.white))),
       ).paddingAll(12)),
       body: onboardingBody(controller),
     );
@@ -42,23 +38,15 @@ class SKOnboardingScreen extends GetView<SKOnboardingController> {
         children: [
           avatarContainer(),
           Text("Sign in to Slack",
-              style: GoogleFonts.notoSans(
-                  textStyle: Get.textTheme.headline6!
-                      .copyWith(color: Colors.white70))),
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.headline6)),
           SKInputWorkspaceName((name) {
             controller.workspaceName = name;
           }),
-          const Divider(
-            color: Colors.white,
-          ).marginSymmetric(horizontal: 12, vertical: 8),
+          const Divider().marginSymmetric(horizontal: 12, vertical: 8),
           Text("Direct Messages",
-              style: GoogleFonts.notoSans(
-                  textStyle:
-                      Get.textTheme.headline6!.copyWith(color: Colors.white))),
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.headline6)),
           Text("Talk one to one with people in your company!",
-              style: GoogleFonts.notoSans(
-                  textStyle:
-                      Get.textTheme.subtitle1!.copyWith(color: Colors.white))),
+              style: GoogleFonts.notoSans(textStyle: Get.textTheme.subtitle1)),
         ],
       ),
     );
@@ -71,7 +59,6 @@ class SKOnboardingScreen extends GetView<SKOnboardingController> {
       margin: const EdgeInsets.only(right: 8),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white,
             shape: BoxShape.rectangle,
             image: const DecorationImage(
                 image: NetworkImage(

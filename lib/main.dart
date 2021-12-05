@@ -25,7 +25,7 @@ class SlackApp extends StatelessWidget {
       theme: lightThemeData(),
       darkTheme: darkThemeData(),
       initialBinding: SKGlobalBindings(),
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       initialRoute: RouteNames.onboarding,
       getPages: getPages(),
     );
